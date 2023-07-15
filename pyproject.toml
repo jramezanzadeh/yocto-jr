@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "yocto"
+version = "0.1.0"
+description = "learning yocto"
+authors = ["Javad Ramezanzadeh"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+kas = "^4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
