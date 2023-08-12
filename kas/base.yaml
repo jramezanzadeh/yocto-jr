@@ -1,0 +1,51 @@
+header:
+    version: 14
+
+build_system: oe
+distro: poky
+machine: qemuarm64
+target: core-image-minimal
+
+local_conf_header:
+  IMAGE_FEATURES: |
+    IMAGE_FEATURES:append = "debug-tweaks"
+
+defaults:
+  repos:
+    branch:
+      kirkstone
+
+repos:
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded.git"
+        path: "layers/meta-openembedded"
+        layers:
+          meta-oe:
+          meta-filesystems:
+          meta-gnome:
+          meta-xfce:
+          meta-initramfs:
+          meta-networking:
+          meta-multimedia:
+          meta-python:
+          meta-perl:
+          meta-webserver:
+    openembedded-core:
+        url: "https://github.com/openembedded/openembedded-core.git"
+        path: "layers/openembedded-core"
+        layers:
+          meta:
+          meta-selftest:
+          meta-skeleton:
+    bitbake:
+        url: "https://github.com/openembedded/bitbake.git"
+        path: "layers/openembedded-core/bitbake"
+        commit: 2.4.0
+        layers:
+          bitbake: excluded
+    meta-yocto:
+        url: "https://git.yoctoproject.org/git/meta-yocto.git"
+        path: "layers/meta-yocto"
+        layers:
+          meta-poky:
+          meta-yocto-bsp:
