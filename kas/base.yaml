@@ -9,6 +9,8 @@ target: core-image-minimal
 local_conf_header:
   IMAGE_FEATURES: |
     IMAGE_FEATURES:append = "debug-tweaks"
+  TOOLCHAIN_TARGET_TASK: |
+    TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
 
 defaults:
   repos:
@@ -16,6 +18,9 @@ defaults:
       kirkstone
 
 repos:
+    meta-bsp-jr:
+        url: "https://github.com/jramezanzadeh/meta-bsp-jr.git"
+        path: "layers/meta-bsp-jr"
     meta-openembedded:
         url: "https://github.com/openembedded/meta-openembedded.git"
         path: "layers/meta-openembedded"

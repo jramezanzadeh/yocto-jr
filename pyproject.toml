@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "yocto"
 version = "0.1.0"
-description = "learning yocto"
+description = "learning yocto and investigating kernel"
 authors = ["Javad Ramezanzadeh"]
 readme = "README.md"
 
