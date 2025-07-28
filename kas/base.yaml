@@ -1,14 +1,13 @@
 header:
     version: 14
-
+    
 build_system: oe
-distro: poky
-machine: qemuarm64
+distro: jr
 target: core-image-minimal
 
 local_conf_header:
   IMAGE_FEATURES: |
-    IMAGE_FEATURES:append = "debug-tweaks"
+    IMAGE_FEATURES:append = " debug-tweaks"
   TOOLCHAIN_TARGET_TASK: |
     TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
 

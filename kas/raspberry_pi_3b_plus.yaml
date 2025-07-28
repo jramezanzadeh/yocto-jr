@@ -1,0 +1,41 @@
+header:
+    version: 14
+    includes: 
+      - base.yaml
+
+local_conf_header:
+  EXTRA_IMAGE_FEATURES: |
+    EXTRA_IMAGE_FEATURES += "ssh-server-openssh"
+  ENABLE_UART: |
+    ENABLE_UART = "1"
+  DISABLE_RPI_BOOT_LOGO: |
+    DISABLE_RPI_BOOT_LOGO = "1"
+  RPI_EXTRA_CONFIG: |
+    RPI_EXTRA_CONFIG += "dtoverlay=disable-bt"
+  SERIAL_CONSOLES: |
+    SERIAL_CONSOLES = "115200;ttyAMA0"
+  USE_VT: |
+    USE_VT = "0"
+  SPLASH: |
+    SPLASH = "psplash-jrlogo"
+  IMAGE_INSTALL: |
+    IMAGE_INSTALL:append = " packagegroup-qt6-modules \
+                            nativesdk-packagegroup-qt6-toolchain-host-addons \
+                            nativesdk-packagegroup-qt6-toolchain-host-essentials \
+                            nativesdk-packagegroup-qt6-toolchain-host"
+                           
+
+
+machine: raspberrypi3-64
+
+repos:
+  meta-raspberrypi:
+    url: "https://git.yoctoproject.org/meta-raspberrypi"
+    path: layers/meta-raspberrypi
+  meta-jr:
+    url: "https://github.com/jramezanzadeh/meta-jr.git"
+    path: layers/meta-jr
+  meta-qt6:
+    url: "git://code.qt.io/yocto/meta-qt6.git"
+    branch: "6.7.3"
+    path: layers/meta-qt6
