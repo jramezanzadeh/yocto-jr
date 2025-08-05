@@ -27,11 +27,14 @@ rm /tmp/$IMAGE_NAME > /dev/null 2>&1
 echo "unzipping image >>>>"
 bzip2 -d /tmp/$ZIP_IMAGE_NAME
 
+umount /media/user/boot
+umount /media/user/root
+
 # Erase as many blocks as required from the beginning of the SD card
-IMAGE_SIZE_MB=$(du -m /tmp/$IMAGE_NAME | cut -f1)
-IMAGE_SIZE_MB=$((IMAGE_SIZE_MB+5)) 
-echo "Erasing first $IMAGE_SIZE_MB MB of the SD card ..."
-sudo dd if=/dev/zero of=/dev/$1 bs=1M status=progress count=$IMAGE_SIZE_MB conv=fsync
+# IMAGE_SIZE_MB=$(du -m /tmp/$IMAGE_NAME | cut -f1)
+# IMAGE_SIZE_MB=$((IMAGE_SIZE_MB+5)) 
+# echo "Erasing first $IMAGE_SIZE_MB MB of the SD card ..."
+# sudo dd if=/dev/zero of=/dev/$1 bs=1M status=progress count=$IMAGE_SIZE_MB conv=fsync
 
 echo "flashing the image into the sd ..."
 sudo dd  if=/tmp/$IMAGE_NAME of=/dev/$1 bs=1M status=progress conv=fsync

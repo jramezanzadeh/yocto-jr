@@ -10,6 +10,8 @@ local_conf_header:
     IMAGE_FEATURES:append = " debug-tweaks"
   TOOLCHAIN_TARGET_TASK: |
     TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
+  save_space: |
+    INHERIT += "rm_work"
 
 defaults:
   repos:

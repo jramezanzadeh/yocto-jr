@@ -4,8 +4,6 @@ header:
       - base.yaml
 
 local_conf_header:
-  EXTRA_IMAGE_FEATURES: |
-    EXTRA_IMAGE_FEATURES += "ssh-server-openssh"
   ENABLE_UART: |
     ENABLE_UART = "1"
   DISABLE_RPI_BOOT_LOGO: |
@@ -16,13 +14,8 @@ local_conf_header:
     SERIAL_CONSOLES = "115200;ttyAMA0"
   USE_VT: |
     USE_VT = "0"
-  SPLASH: |
-    SPLASH = "psplash-jrlogo"
-  IMAGE_INSTALL: |
-    IMAGE_INSTALL:append = " packagegroup-qt6-modules \
-                            nativesdk-packagegroup-qt6-toolchain-host-addons \
-                            nativesdk-packagegroup-qt6-toolchain-host-essentials \
-                            nativesdk-packagegroup-qt6-toolchain-host"
+  locales_to_be_installed: |
+    GLIBC_GENERATE_LOCALES = "en_US.UTF-8 C.UTF-8 fr_FR.UTF-8 de_DE.UTF-8"
                            
 
 
