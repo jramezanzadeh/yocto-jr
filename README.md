@@ -19,7 +19,15 @@ poetry install
 poetry run kas shell kas/your_machine_configuration.yaml
 bitbake jr-image-graphic
 ```
-
+or
+``` bash
+poetry run kas-container shell kas/raspberry_pi_3b_plus.yaml
+bitbake jr-image-graphic
+```
+or directly
+``` bash
+poetry run kas-container build kas/raspberry_pi_3b_plus.yaml
+```
 * Flash the built image into sd card
 ``` bash
 #first determine the device file of your sd card

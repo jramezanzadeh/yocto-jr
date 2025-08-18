@@ -3,6 +3,8 @@ header:
     includes: 
       - base.yaml
 
+target: jr-image-graphic
+
 local_conf_header:
   ENABLE_UART: |
     ENABLE_UART = "1"
