@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "yocto"
+name = "yocto-jr"
 version = "0.1.0"
-description = "learning yocto and investigating kernel"
+description = "yocto base embedded linux"
 authors = ["Javad Ramezanzadeh"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
